@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45B98E931708EBF800003651 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B98E921708EBF800003651 /* Foundation.framework */; };
+		45B98E981708EBF800003651 /* Fluidinfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45B98E971708EBF800003651 /* Fluidinfo.h */; };
+		45B98E9A1708EBF800003651 /* Fluidinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98E991708EBF800003651 /* Fluidinfo.m */; };
+		45B98EA21708EBF800003651 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B98EA11708EBF800003651 /* SenTestingKit.framework */; };
+		45B98EA41708EBF800003651 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B98EA31708EBF800003651 /* UIKit.framework */; };
+		45B98EA51708EBF800003651 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B98E921708EBF800003651 /* Foundation.framework */; };
+		45B98EA81708EBF800003651 /* libFluidinfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B98E8F1708EBF800003651 /* libFluidinfo.a */; };
+		45B98EAE1708EBF800003651 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45B98EAC1708EBF800003651 /* InfoPlist.strings */; };
+		45B98EB11708EBF800003651 /* FluidinfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EB01708EBF800003651 /* FluidinfoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45B98EA61708EBF800003651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B98E871708EBF800003651 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B98E8E1708EBF800003651;
+			remoteInfo = Fluidinfo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45B98E8D1708EBF800003651 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				45B98E981708EBF800003651 /* Fluidinfo.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		45B98E8F1708EBF800003651 /* libFluidinfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFluidinfo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B98E921708EBF800003651 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45B98E961708EBF800003651 /* Fluidinfo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fluidinfo-Prefix.pch"; sourceTree = "<group>"; };
+		45B98E971708EBF800003651 /* Fluidinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fluidinfo.h; sourceTree = "<group>"; };
+		45B98E991708EBF800003651 /* Fluidinfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fluidinfo.m; sourceTree = "<group>"; };
+		45B98EA01708EBF800003651 /* FluidinfoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluidinfoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B98EA11708EBF800003651 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		45B98EA31708EBF800003651 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		45B98EAB1708EBF800003651 /* FluidinfoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FluidinfoTests-Info.plist"; sourceTree = "<group>"; };
+		45B98EAD1708EBF800003651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45B98EAF1708EBF800003651 /* FluidinfoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FluidinfoTests.h; sourceTree = "<group>"; };
+		45B98EB01708EBF800003651 /* FluidinfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FluidinfoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45B98E8C1708EBF800003651 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45B98E931708EBF800003651 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B98E9C1708EBF800003651 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45B98EA21708EBF800003651 /* SenTestingKit.framework in Frameworks */,
+				45B98EA41708EBF800003651 /* UIKit.framework in Frameworks */,
+				45B98EA51708EBF800003651 /* Foundation.framework in Frameworks */,
+				45B98EA81708EBF800003651 /* libFluidinfo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45B98E861708EBF800003651 = {
+			isa = PBXGroup;
+			children = (
+				45B98E941708EBF800003651 /* Fluidinfo */,
+				45B98EA91708EBF800003651 /* FluidinfoTests */,
+				45B98E911708EBF800003651 /* Frameworks */,
+				45B98E901708EBF800003651 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45B98E901708EBF800003651 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45B98E8F1708EBF800003651 /* libFluidinfo.a */,
+				45B98EA01708EBF800003651 /* FluidinfoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45B98E911708EBF800003651 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45B98E921708EBF800003651 /* Foundation.framework */,
+				45B98EA11708EBF800003651 /* SenTestingKit.framework */,
+				45B98EA31708EBF800003651 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45B98E941708EBF800003651 /* Fluidinfo */ = {
+			isa = PBXGroup;
+			children = (
+				45B98E971708EBF800003651 /* Fluidinfo.h */,
+				45B98E991708EBF800003651 /* Fluidinfo.m */,
+				45B98E951708EBF800003651 /* Supporting Files */,
+			);
+			path = Fluidinfo;
+			sourceTree = "<group>";
+		};
+		45B98E951708EBF800003651 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45B98E961708EBF800003651 /* Fluidinfo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45B98EA91708EBF800003651 /* FluidinfoTests */ = {
+			isa = PBXGroup;
+			children = (
+				45B98EAF1708EBF800003651 /* FluidinfoTests.h */,
+				45B98EB01708EBF800003651 /* FluidinfoTests.m */,
+				45B98EAA1708EBF800003651 /* Supporting Files */,
+			);
+			path = FluidinfoTests;
+			sourceTree = "<group>";
+		};
+		45B98EAA1708EBF800003651 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45B98EAB1708EBF800003651 /* FluidinfoTests-Info.plist */,
+				45B98EAC1708EBF800003651 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45B98E8E1708EBF800003651 /* Fluidinfo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45B98EB41708EBF800003651 /* Build configuration list for PBXNativeTarget "Fluidinfo" */;
+			buildPhases = (
+				45B98E8B1708EBF800003651 /* Sources */,
+				45B98E8C1708EBF800003651 /* Frameworks */,
+				45B98E8D1708EBF800003651 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fluidinfo;
+			productName = Fluidinfo;
+			productReference = 45B98E8F1708EBF800003651 /* libFluidinfo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		45B98E9F1708EBF800003651 /* FluidinfoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45B98EB71708EBF800003651 /* Build configuration list for PBXNativeTarget "FluidinfoTests" */;
+			buildPhases = (
+				45B98E9B1708EBF800003651 /* Sources */,
+				45B98E9C1708EBF800003651 /* Frameworks */,
+				45B98E9D1708EBF800003651 /* Resources */,
+				45B98E9E1708EBF800003651 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45B98EA71708EBF800003651 /* PBXTargetDependency */,
+			);
+			name = FluidinfoTests;
+			productName = FluidinfoTests;
+			productReference = 45B98EA01708EBF800003651 /* FluidinfoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45B98E871708EBF800003651 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Barbara Shirtcliff";
+			};
+			buildConfigurationList = 45B98E8A1708EBF800003651 /* Build configuration list for PBXProject "Fluidinfo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 45B98E861708EBF800003651;
+			productRefGroup = 45B98E901708EBF800003651 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45B98E8E1708EBF800003651 /* Fluidinfo */,
+				45B98E9F1708EBF800003651 /* FluidinfoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45B98E9D1708EBF800003651 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45B98EAE1708EBF800003651 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45B98E9E1708EBF800003651 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45B98E8B1708EBF800003651 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45B98E9A1708EBF800003651 /* Fluidinfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B98E9B1708EBF800003651 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45B98EB11708EBF800003651 /* FluidinfoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45B98EA71708EBF800003651 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45B98E8E1708EBF800003651 /* Fluidinfo */;
+			targetProxy = 45B98EA61708EBF800003651 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45B98EAC1708EBF800003651 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45B98EAD1708EBF800003651 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45B98EB21708EBF800003651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		45B98EB31708EBF800003651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45B98EB51708EBF800003651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Fluidinfo.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fluidinfo/Fluidinfo-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		45B98EB61708EBF800003651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Fluidinfo.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fluidinfo/Fluidinfo-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		45B98EB81708EBF800003651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fluidinfo/Fluidinfo-Prefix.pch";
+				INFOPLIST_FILE = "FluidinfoTests/FluidinfoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		45B98EB91708EBF800003651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fluidinfo/Fluidinfo-Prefix.pch";
+				INFOPLIST_FILE = "FluidinfoTests/FluidinfoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45B98E8A1708EBF800003651 /* Build configuration list for PBXProject "Fluidinfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B98EB21708EBF800003651 /* Debug */,
+				45B98EB31708EBF800003651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45B98EB41708EBF800003651 /* Build configuration list for PBXNativeTarget "Fluidinfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B98EB51708EBF800003651 /* Debug */,
+				45B98EB61708EBF800003651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		45B98EB71708EBF800003651 /* Build configuration list for PBXNativeTarget "FluidinfoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B98EB81708EBF800003651 /* Debug */,
+				45B98EB91708EBF800003651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45B98E871708EBF800003651 /* Project object */;
+}
