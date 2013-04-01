@@ -2,19 +2,22 @@
 //  FluidinfoTests.m
 //  FluidinfoTests
 //
-//  Created by Barbara Shirtcliff on 3/31/13.
+//  Created by Barbara Shirtcliff on 3/28/13.
 //  Copyright (c) 2013 Barbara Shirtcliff. All rights reserved.
 //
 
 #import "FluidinfoTests.h"
 
+#define _DOMAIN @"com.fluidinfo.api.NSCocoaErrorDomain"
+
 @implementation FluidinfoTests
+@synthesize fluidinfo;
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+    fluidinfo = [[Fluidinfo alloc] initWithUsername:@"barshirtcliff" andPassword:@"for)+ut"];
+    // or maybe "teon253Gceu+[hei/nt   h"
 }
 
 - (void)tearDown
@@ -24,9 +27,15 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testNamespaceGet
 {
-    STFail(@"Unit tests are not implemented yet in FluidinfoTests");
+    NSString * path = @"namespaces/barshirtcliff?returnDescription=false&returnNamespaces=true&returnTags=true";
+    Namespace * namespace = [Namespace getWithPath:path];
+    NSRunLoop * rl = [NSRunLoop currentRunLoop];
+    
+    while ([namespace waiting] &&
+           [rl runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+    NSLog(@"got namespace: %@", namespace);
 }
 
 @end

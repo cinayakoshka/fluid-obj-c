@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Fluidinfo.h"
+#import "Session.h"
+#import "FiRequest.h"
+#import "FiObject.h"
+#import "URLDelegate.h"
+#import "Namespace.h"
+#import "Tag.h"
 
 @interface Fluidinfo : NSObject
-
+- (id) initWithUsername:(NSString *)u andPassword:(NSString *)p;
+- (id) init;
 @end
