@@ -27,18 +27,13 @@
 
 - (BOOL) get
 {
-    if (!waiting) {
-        if ([lock tryLock]) {
-            waiting = YES;
-            URLDelegate * d = [URLDelegate initWithCompletionDelegate:self];
-            NSURLRequest * request = [FiRequest getName:name withPath:namespace.path];
-            [d doRequest:request];
-            [[NSConditionLock alloc] lockWhenCondition:!waiting];
-            [lock unlock];
-        }
-        return YES;
+    @synchronized(self) {
+        waiting = YES;
+        URLDelegate * d = [URLDelegate initWithCompletionDelegate:self];
+        NSURLRequest * request = [FiRequest getName:name withPath:namespace.path];
+        [d doRequest:request];
     }
-    return NO;
+    return YES;
 }
 
 - (BOOL) update
@@ -58,8 +53,10 @@
 
 - (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
 {
-    NSDictionary * dictionary = [super getDictionaryMaybeFrom:delegate];
-    [self processReturnedDictionary:dictionary];
+    @synchronized(self) {
+        NSDictionary * dictionary = [super getDictionaryMaybeFrom:delegate];
+        [self processReturnedDictionary:dictionary];
+    }
 }
 
 - (void) processReturnedDictionary:(NSDictionary *)dictionary

@@ -8,8 +8,6 @@
 
 #import "FluidinfoTests.h"
 
-#define _DOMAIN @"com.fluidinfo.api.NSCocoaErrorDomain"
-
 @implementation FluidinfoTests
 @synthesize fluidinfo;
 
@@ -23,19 +21,30 @@
 - (void)tearDown
 {
     // Tear-down code here.
-    
     [super tearDown];
 }
 
 - (void)testNamespaceGet
 {
-    NSString * path = @"namespaces/barshirtcliff?returnDescription=false&returnNamespaces=true&returnTags=true";
-    Namespace * namespace = [Namespace getWithPath:path];
+    NSString * name = @"barshirtcliff";
+    Namespace * namespace = [Namespace getWithPath:name];
     NSRunLoop * rl = [NSRunLoop currentRunLoop];
     
     while ([namespace waiting] &&
            [rl runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
     NSLog(@"got namespace: %@", namespace);
 }
+
+- (void)testPrivateNamespaceGet
+{
+    NSString * name = @"barshirtcliff/private";
+    Namespace * namespace = [Namespace getWithPath:name];
+    NSRunLoop * rl = [NSRunLoop currentRunLoop];
+    
+    while ([namespace waiting] &&
+           [rl runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+    NSLog(@"got namespace: %@", namespace);
+}
+
 
 @end

@@ -12,7 +12,7 @@
 #define _DOMAIN @"com.fluidinfo.api.NSCocoaErrorDomain"
 
 @implementation FiObject
-@synthesize waiting, lock;
+@synthesize waiting;
 - (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
 {
     // no-op.

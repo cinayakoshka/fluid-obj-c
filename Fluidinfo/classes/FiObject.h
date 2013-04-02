@@ -12,7 +12,6 @@
 @interface FiObject : NSObject
 {
     BOOL waiting;
-    NSLock * lock;
 }
 // TODO: add some locking around waiting - avoid simultaneous updates.
 @property(readwrite, nonatomic) BOOL waiting;

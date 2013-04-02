@@ -9,36 +9,31 @@
 #import "Namespace.h"
 
 @implementation Namespace
-@synthesize path, description, namespaces, tags, id, name;
-+ (id) getWithPath:(NSString *)path andName:(NSString *)name
+@synthesize path, description, namespaces, tags, id;
++ (id) getWithPath:(NSString *)path
 {
-    Namespace * namespace = [Namespace initWithPath:path andName:name];
+    Namespace * namespace = [Namespace initWithPath:path];
     [namespace get];
     return namespace;
 }
 
-+ (id)initWithPath:(NSString *)path andName:(NSString *)name
++ (id)initWithPath:(NSString *)path
 {
     Namespace * namespace = [[Namespace alloc] init];
     namespace.path = path;
-    namespace.name = name;
     return namespace;
 }
 
 - (BOOL) get
 {
-    if (!waiting) {
-        if ([lock tryLock]) {
-            NSString * fullpath = [NSString stringWithFormat:@"namespaces/%@/%@?returnDescription=false&returnNamespaces=true&returnTags=true", path, name];
-            waiting = YES;
-            NSURLRequest * request = [FiRequest getPath:fullpath];
-            URLDelegate * d = [URLDelegate initWithCompletionDelegate:self];
+    @synchronized(self) {
+        waiting = YES;
+        NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@?returnDescription=true&returnNamespaces=true&returnTags=true",[self fullPath]]];
+        URLDelegate * d = [URLDelegate initWithCompletionDelegate:self];
     
-            [d doRequest:request];
-            return YES;
-        }
+        [d doRequest:request];
+        return YES;
     }
-    return NO;
 }
 
 - (BOOL) update
@@ -58,18 +53,27 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Namespace %@", path];
+    return [NSString stringWithFormat:@"%@ { id: %@, description: %@ namespaces: { %@ } tags: { %@ }}",
+            path, id, description, namespaces, tags];
+}
+
+- (NSString *) fullPath
+{
+    return [NSString stringWithFormat:@"namespaces/%@", path];
 }
 
 - (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
 {
-    NSDictionary * dictionary = [super getDictionaryMaybeFrom:delegate];
-    [self processReturnedDictionary:dictionary];
+    @synchronized(self) {
+        NSDictionary * dictionary = [super getDictionaryMaybeFrom:delegate];
+        [self processReturnedDictionary:dictionary];
+    }
 }
 
 - (void) processReturnedDictionary:(NSDictionary *) dictionary
 {
     [self setId:[dictionary valueForKey:@"id"]];
+    [self setDescription:[dictionary valueForKey:@"description"]];
 
     /*
      NSArray * nTags = [dic valueForKey:@"tagNames"];
@@ -85,9 +89,8 @@
     NSArray * nNamespaces = [dictionary valueForKey:@"namespaceNames"];
     if ([nNamespaces count] > 0) {
         NSMutableArray * tempNamespaces = [[NSMutableArray alloc] init];
-        NSString * tempPath = [NSString stringWithFormat:@"%@/%@", path, name];
         for (NSString * tname in nNamespaces) {
-            [tempNamespaces addObject:[Namespace initWithPath:tempPath andName:tname]];
+            [tempNamespaces addObject:[Namespace initWithPath:[NSString stringWithFormat:@"%@/%@", path, tname]]];
         }
         namespaces = tempNamespaces;
     }
