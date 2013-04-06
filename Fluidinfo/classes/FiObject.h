@@ -9,13 +9,25 @@
 #import <Foundation/Foundation.h>
 @class URLDelegate;
 
-@interface FiObject : NSObject
+
+@protocol FiClass <NSObject>
+@required
+- (void)update;
+- (void)create;
+- (void)delete;
+- (void)get;
+@end
+
+@interface FiObject : NSObject <FiClass>
 {
     BOOL waiting;
+    NSError * error;
 }
 // TODO: add some locking around waiting - avoid simultaneous updates.
 @property(readwrite, nonatomic) BOOL waiting;
-@property(atomic) NSLock * lock;
+@property(readwrite, nonatomic, copy) NSError * error;
+- (NSString *)fullPath;
 - (void)handleCompletionOrCancelFrom:(URLDelegate *)delegate;
 - (NSDictionary *)getDictionaryMaybeFrom:(URLDelegate *)delegate;
+- (void) callFluidinfo:(NSURLRequest *)request andWait:(BOOL) wait;
 @end

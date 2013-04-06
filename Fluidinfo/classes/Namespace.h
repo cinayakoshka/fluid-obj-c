@@ -12,6 +12,7 @@
 @interface Namespace : FiObject
 {
     NSString * path;
+    NSString * name;
     NSUUID * id;
     NSString * description;
     NSArray * tags;
@@ -20,8 +21,10 @@
 @property (nonatomic, readwrite) NSArray * namespaces;
 @property (nonatomic, readwrite) NSArray * tags;
 @property (nonatomic, readwrite) NSString * path;
+@property (nonatomic, readwrite) NSString * name;
 @property (nonatomic, readwrite) NSUUID * id;
 @property (nonatomic, readwrite) NSString * description;
-+ (id)getWithPath:(NSString *)path;
-+ (id)initWithPath:(NSString *)path;
++ (id)getWithPath:(NSString *)path andName:(NSString *)name;
++ (id)initWithPath:(NSString *)path andName:(NSString *)name;
+- (NSData *)postJson;
 @end

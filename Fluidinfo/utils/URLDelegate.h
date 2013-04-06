@@ -15,10 +15,12 @@
     NSMutableData * receivedData;
     FiObject * completionDelegate;
     BOOL complete;
+    NSError * error;
 }
 @property NSMutableData * receivedData;
 @property (nonatomic, readwrite) FiObject * completionDelegate;
 @property (nonatomic) BOOL complete;
+@property (nonatomic, readwrite, copy) NSError * error;
 
 + (id) initWithCompletionDelegate:(FiObject *)completionDelegate;
 

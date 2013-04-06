@@ -10,9 +10,14 @@
 #import "Fluidinfo.h"
 #import "Namespace.h"
 
+
 @interface FluidinfoTests : SenTestCase
 {
     Fluidinfo * fluidinfo;
+    FiObject * fiObject;
+    NSBlockOperation * block;
 }
 @property (readwrite, copy) Fluidinfo * fluidinfo;
+@property (readwrite) FiObject * fiObject;
+@property (readwrite) NSBlockOperation * block;
 @end

@@ -8,18 +8,18 @@
 
 #import "Session.h"
 
-#define INSTANCE [NSURL URLWithString: [NSString stringWithFormat:@"%@://%@", scheme, instance]]
+#define INSTANCE [NSURL URLWithString: [NSString stringWithFormat:@"%@://%@", scheme, fiInstance]]
 #define __DEBUG__ YES
 
 @implementation Session
-@synthesize instance, scheme, port, credential;
+@synthesize fiInstance, scheme, port, credential;
 
 static Session * session;
 
 + (void) initialize
 {
     session = [Session alloc];
-    [session setInstance:@"fluiddb.fluidinfo.com"];
+    [session setFiInstance:@"fluiddb.fluidinfo.com"];
     [session setPort:443];
     [session setScheme:@"http"];
 }
@@ -32,6 +32,7 @@ static Session * session;
 + (void) setUsername:(NSString *)u andPassword:(NSString *)p
 {
     [session setCredential:[NSURLCredential credentialWithUser:u password:p persistence:NSURLCredentialPersistencePermanent]];
+    [session setScheme:@"https"];
 }
 
 - (NSURLCredential *) getCredential

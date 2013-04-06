@@ -11,5 +11,6 @@
 
 @interface FiRequest : NSObject
 + (NSURLRequest *) getPath:(NSString *)path;
-+ (NSURLRequest *) getName:(NSString *)name withPath:(NSString *)path;
++ (NSURLRequest *) deletePath:(NSString *)path;
++ (NSURLRequest *) postBody:(NSData *)data toPath:(NSString *)path;
 @end

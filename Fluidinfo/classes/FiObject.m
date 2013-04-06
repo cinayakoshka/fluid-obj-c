@@ -8,16 +8,12 @@
 
 #import "FiObject.h"
 #import "URLDelegate.h"
+#import "FiRequest.h"
 
 #define _DOMAIN @"com.fluidinfo.api.NSCocoaErrorDomain"
 
 @implementation FiObject
-@synthesize waiting;
-- (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
-{
-    // no-op.
-}
-
+@synthesize waiting, error;
 - (NSDictionary *)getDictionaryMaybeFrom:(URLDelegate *)delegate
 {
     if (delegate.complete) {
@@ -26,5 +22,48 @@
         return dic;
     }
     return NULL;
+}
+
+- (void) callFluidinfo:(NSURLRequest *)request andWait:(BOOL) wait
+{
+    @synchronized(self) {
+        waiting = wait;
+        URLDelegate * d = [URLDelegate initWithCompletionDelegate:self];
+        [d doRequest:request];
+    }
+}
+
+- (NSString *) fullPath
+{
+    return @"";
+}
+
+- (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
+{
+    if (delegate.error != NULL) {
+        error = delegate.error;
+        waiting = NO;
+    }
+}
+
+- (void) get
+{
+    
+}
+
+- (void) update
+{
+    
+}
+
+- (void) create
+{
+    
+}
+
+- (void) delete
+{
+    NSURLRequest * req = [FiRequest deletePath:[self fullPath]];
+    [self callFluidinfo:req andWait:YES];    
 }
 @end

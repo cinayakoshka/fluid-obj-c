@@ -9,46 +9,47 @@
 #import "Namespace.h"
 
 @implementation Namespace
-@synthesize path, description, namespaces, tags, id;
-+ (id) getWithPath:(NSString *)path
+@synthesize path, description, namespaces, tags, id, name;
++ (id) getWithPath:(NSString *)path andName:(NSString *)name
 {
-    Namespace * namespace = [Namespace initWithPath:path];
+    Namespace * namespace = [Namespace initWithPath:path andName:name];
     [namespace get];
     return namespace;
 }
 
-+ (id)initWithPath:(NSString *)path
++ (id)initWithPath:(NSString *)path andName:(NSString *)name
 {
     Namespace * namespace = [[Namespace alloc] init];
     namespace.path = path;
+    namespace.name = name;
+    namespace.description = @"";
     return namespace;
 }
 
-- (BOOL) get
+- (NSData *)postJson
 {
-    @synchronized(self) {
-        waiting = YES;
-        NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@?returnDescription=true&returnNamespaces=true&returnTags=true",[self fullPath]]];
-        URLDelegate * d = [URLDelegate initWithCompletionDelegate:self];
-    
-        [d doRequest:request];
-        return YES;
-    }
+    NSDictionary * temp = [NSDictionary dictionaryWithObjectsAndKeys:
+                           description, @"description",
+                           name, @"name", nil];
+    return [NSJSONSerialization dataWithJSONObject:temp options:noErr error:nil];
 }
 
-- (BOOL) update
+- (void) get
 {
-    return NO;
+    NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@?returnDescription=true&returnNamespaces=true&returnTags=true",[self fullPath]]];
+    [self callFluidinfo:request andWait:YES];
 }
 
-- (BOOL) create
+- (void) update
 {
-    return NO;
+
 }
 
-- (BOOL) delete
+- (void) create
 {
-    return NO;
+    NSURLRequest * request = [FiRequest postBody:[self postJson] toPath:
+                              [NSString stringWithFormat:@"namespaces/%@", path]];
+    [self callFluidinfo:request andWait:YES];
 }
 
 - (NSString *)description
@@ -59,14 +60,20 @@
 
 - (NSString *) fullPath
 {
-    return [NSString stringWithFormat:@"namespaces/%@", path];
+    if (path != NULL)
+        return [NSString stringWithFormat:@"namespaces/%@/%@", path, name];
+    else
+        return [NSString stringWithFormat:@"namespaces/%@", name];
 }
 
 - (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
 {
     @synchronized(self) {
-        NSDictionary * dictionary = [super getDictionaryMaybeFrom:delegate];
-        [self processReturnedDictionary:dictionary];
+        [super handleCompletionOrCancelFrom: delegate];
+        if (delegate.complete) {
+            NSDictionary * dictionary = [super getDictionaryMaybeFrom:delegate];
+            [self processReturnedDictionary:dictionary];
+        }
     }
 }
 
@@ -90,7 +97,8 @@
     if ([nNamespaces count] > 0) {
         NSMutableArray * tempNamespaces = [[NSMutableArray alloc] init];
         for (NSString * tname in nNamespaces) {
-            [tempNamespaces addObject:[Namespace initWithPath:[NSString stringWithFormat:@"%@/%@", path, tname]]];
+            [tempNamespaces addObject:
+             [Namespace initWithPath:[NSString stringWithFormat:@"%@/%@", path, name] andName:tname]];
         }
         namespaces = tempNamespaces;
     }

@@ -9,12 +9,13 @@
 #import "Tag.h"
 
 @implementation Tag
-@synthesize name, description, namespace, id;
+@synthesize name, description, namespace, id, indexed;
 + (id) initWithNamespace:(Namespace *)namespace andName:(NSString *)name
 {
     Tag * tag = [[Tag alloc] init];
     tag.name = name;
     tag.namespace = namespace;
+    tag.indexed = false;
     return tag;
 }
 
@@ -25,30 +26,25 @@
     return tag;
 }
 
-- (BOOL) get
+- (void) get
 {
-    @synchronized(self) {
-        waiting = YES;
-        URLDelegate * d = [URLDelegate initWithCompletionDelegate:self];
-        NSURLRequest * request = [FiRequest getName:name withPath:namespace.path];
-        [d doRequest:request];
-    }
-    return YES;
+    NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@/%@", namespace.path, name]];
+    [self callFluidinfo:request andWait:YES];
 }
 
-- (BOOL) update
+- (void) update
 {
-    return NO;
+
 }
 
-- (BOOL) create
+- (void) create
 {
-    return NO;
+
 }
 
-- (BOOL) delete
+- (void) delete
 {
-    return NO;
+
 }
 
 - (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate

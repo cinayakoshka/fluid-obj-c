@@ -10,12 +10,12 @@
 @interface Session : NSObject
 {
     NSURLCredential * credential;
-    NSString * instance;
+    NSString * fiInstance;
     NSString * scheme;
     int port;
 }
 @property (readwrite, nonatomic, copy) NSURLCredential * credential;
-@property (readwrite, nonatomic, copy) NSString * instance;
+@property (readwrite, nonatomic, copy) NSString * fiInstance;
 @property (readwrite, nonatomic, copy) NSString * scheme;
 @property (readwrite) int port;
 + (void) initialize;

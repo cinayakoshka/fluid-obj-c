@@ -9,7 +9,7 @@
 #import "URLDelegate.h"
 
 @implementation URLDelegate
-@synthesize receivedData, complete, completionDelegate;
+@synthesize receivedData, complete, completionDelegate, error;
 - (id) init
 {
     self = [super init];
@@ -47,14 +47,6 @@
 
 # pragma private methods
 
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)space
-{
-    if ([[space authenticationMethod] isEqual:NSURLAuthenticationMethodHTTPBasic]) {
-        return YES;
-    }
-    return NO;
-}
-
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     [receivedData setLength:0];
@@ -65,11 +57,12 @@
     [receivedData appendData:data];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)_error
 {    // inform the user
     NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+          [_error localizedDescription],
+          [[_error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    self.error = _error;
     [self callback];
 }
 
@@ -79,17 +72,39 @@
     [self callback];
 }
 
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)space
+{
+    NSString *authenticationMethod = space.authenticationMethod;
+    if ([authenticationMethod isEqual:NSURLAuthenticationMethodHTTPBasic]) {
+        return YES;
+    }
+    if ([authenticationMethod isEqual:NSURLAuthenticationMethodServerTrust]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    if ([challenge previousFailureCount] == 0) {
-        Session * session = [Session get];
+    if ([challenge previousFailureCount] > 2) {
+        return;
+    }
+    NSString *authenticationMethod = challenge.protectionSpace.authenticationMethod;
+    Session *session = [Session get];
+    
+    if ([authenticationMethod isEqual:NSURLAuthenticationMethodHTTPBasic]) {
         [[challenge sender] useCredential:[session getCredential]
                forAuthenticationChallenge:challenge];
+    } else if ([authenticationMethod isEqual:NSURLAuthenticationMethodServerTrust]
+               && [challenge.protectionSpace.host isEqualToString:session.fiInstance]) {
+    //    NSURLCredential *serverTrust = [NSURLCredential credentialForTrust: challenge.protectionSpace.serverTrust];
+
+        [challenge.sender useCredential:[session getCredential]
+             forAuthenticationChallenge: challenge];
     } else {
         // proceed anyway.
         [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
     }
 }
-
-
 @end

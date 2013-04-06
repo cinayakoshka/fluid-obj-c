@@ -8,12 +8,3 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol FiClass <NSObject>
-@required
-- (BOOL)update;
-- (BOOL)create;
-- (BOOL)delete;
-
-@optional
-- (BOOL)get;
-@end

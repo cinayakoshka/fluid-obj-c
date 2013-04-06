@@ -17,11 +17,13 @@
     NSUUID * id;
     Namespace * namespace;
     NSString * description;
+    BOOL indexed;
 }
 @property (readwrite, nonatomic, copy) NSString * name;
 @property (readwrite, nonatomic, copy) NSUUID * id;
 @property (readwrite, nonatomic, copy) Namespace * namespace;
 @property (readwrite, nonatomic, copy) NSString * description;
+@property (readwrite, nonatomic) BOOL indexed;
 
 + (id)getWithNamespace:(Namespace *)namespace andName:(NSString *)name;
 + (id)initWithNamespace:(Namespace *)namespace andName:(NSString *)name;

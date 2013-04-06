@@ -7,6 +7,8 @@
 //
 
 #import "FiRequest.h"
+// TODO: use
+// NSString *fixedURL = [myURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
 
 @implementation FiRequest
@@ -28,8 +30,29 @@
     return req;
 }
 
-+ (NSURLRequest *) getName:(NSString *)name withPath:(NSString *)path
++ (NSURLRequest *) deletePath:(NSString *)path
 {
-    return [FiRequest getPath:[NSString stringWithFormat:@"%@/%@", path, name]];
+    NSURL * url = [Session urlForPath:path];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url
+                                                       cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                   timeoutInterval:60];
+    [FiRequest prepareHeadersForRequest:req];
+    [req setHTTPMethod:@"DELETE"];
+    return req;
+}
+
++ (NSURLRequest *) postBody:(NSData *)data toPath:(NSString *)path
+{
+    NSURL * url = [Session urlForPath:path];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url
+                                                       cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                   timeoutInterval:60];
+    [FiRequest prepareHeadersForRequest:req];
+    [req setHTTPMethod:@"POST"];
+    [req setHTTPBody: data];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    // not sure the following isn't done automatically:
+    [req setValue:[NSString stringWithFormat:@"%i", [data length]]  forHTTPHeaderField:@"Content-Length"];
+    return req;
 }
 @end
