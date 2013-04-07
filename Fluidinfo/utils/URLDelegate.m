@@ -20,7 +20,7 @@
     return self;
 }
 
-+ (id) initWithCompletionDelegate:(FiObject *)completionDelegate
++ (id) initWithCompletionDelegate:(FiClass *)completionDelegate
 {
     URLDelegate * delegate = [[URLDelegate alloc] init];
     [delegate setCompletionDelegate:completionDelegate];

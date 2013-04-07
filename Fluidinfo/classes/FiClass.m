@@ -1,18 +1,18 @@
 //
-//  FiObject.m
+//  FiClass.m
 //  Fluidinfo
 //
 //  Created by Barbara Shirtcliff on 4/1/13.
 //  Copyright (c) 2013 Barbara Shirtcliff. All rights reserved.
 //
 
-#import "FiObject.h"
+#import "FiClass.h"
 #import "URLDelegate.h"
 #import "FiRequest.h"
 
 #define _DOMAIN @"com.fluidinfo.api.NSCocoaErrorDomain"
 
-@implementation FiObject
+@implementation FiClass
 @synthesize waiting, error, processResponse;
 - (NSDictionary *)getDictionaryMaybeFrom:(URLDelegate *)delegate
 {

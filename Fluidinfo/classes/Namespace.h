@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Fluidinfo.h"
 
-@interface Namespace : FiObject
+@interface Namespace : FiClass
 {
     NSString * path;
     NSString * name;

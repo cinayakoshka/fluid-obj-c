@@ -8,23 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import "Session.h"
-#import "FiObject.h"
+#import "FiClass.h"
 
 @interface URLDelegate : NSObject
 {
     NSMutableData * receivedData;
-    FiObject * completionDelegate;
+    FiClass * completionDelegate;
     BOOL complete;
     NSError * error;
 }
 @property NSMutableData * receivedData;
-@property (nonatomic, readwrite) FiObject * completionDelegate;
+@property (nonatomic, readwrite) FiClass * completionDelegate;
 @property (nonatomic) BOOL complete;
 @property (nonatomic, readwrite, copy) NSError * error;
 
-+ (id) initWithCompletionDelegate:(FiObject *)completionDelegate;
++ (id) initWithCompletionDelegate:(FiClass *)completionDelegate;
 
 - (id) init;
 - (void)doRequest:(NSURLRequest *)request;
-- (void)setCompletionDelegate:(FiObject *)completionDelegate;
+- (void)setCompletionDelegate:(FiClass *)completionDelegate;
 @end

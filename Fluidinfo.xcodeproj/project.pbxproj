@@ -26,12 +26,11 @@
 		45B98ECA1709120A00003651 /* FiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EC81709120A00003651 /* FiRequest.m */; };
 		45B98ED21709C55700003651 /* Namespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED11709C55700003651 /* Namespace.m */; };
 		45B98ED31709C55700003651 /* Namespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED11709C55700003651 /* Namespace.m */; };
-		45B98EDA1709CFAD00003651 /* FiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED91709CFAD00003651 /* FiObject.m */; };
-		45B98EDB1709CFAD00003651 /* FiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED91709CFAD00003651 /* FiObject.m */; };
+		45B98EDA1709CFAD00003651 /* FiClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED91709CFAD00003651 /* FiClass.m */; };
+		45B98EDB1709CFAD00003651 /* FiClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED91709CFAD00003651 /* FiClass.m */; };
 		45B98EDE170A11BD00003651 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EDD170A11BD00003651 /* Tag.m */; };
 		45B98EDF170A11BD00003651 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EDD170A11BD00003651 /* Tag.m */; };
 		45B98EE2170E6F7500003651 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45B98EE1170E6F7400003651 /* README.md */; };
-		45B98EE517109F9800003651 /* AsyncTestCaseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EE417109F9800003651 /* AsyncTestCaseHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,14 +79,11 @@
 		45B98EC81709120A00003651 /* FiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiRequest.m; sourceTree = "<group>"; };
 		45B98ED01709C55700003651 /* Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Namespace.h; sourceTree = "<group>"; };
 		45B98ED11709C55700003651 /* Namespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Namespace.m; sourceTree = "<group>"; };
-		45B98ED81709CFAC00003651 /* FiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiObject.h; sourceTree = "<group>"; };
-		45B98ED91709CFAD00003651 /* FiObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiObject.m; sourceTree = "<group>"; };
+		45B98ED81709CFAC00003651 /* FiClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiClass.h; sourceTree = "<group>"; };
+		45B98ED91709CFAD00003651 /* FiClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiClass.m; sourceTree = "<group>"; };
 		45B98EDC170A11BD00003651 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Fluidinfo/classes/Tag.h; sourceTree = SOURCE_ROOT; };
 		45B98EDD170A11BD00003651 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Fluidinfo/classes/Tag.m; sourceTree = SOURCE_ROOT; };
-		45B98EE0170A292100003651 /* FiClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiClass.h; sourceTree = "<group>"; };
 		45B98EE1170E6F7400003651 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		45B98EE317109F9800003651 /* AsyncTestCaseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTestCaseHandler.h; sourceTree = "<group>"; };
-		45B98EE417109F9800003651 /* AsyncTestCaseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTestCaseHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,8 +167,6 @@
 				45B98EAF1708EBF800003651 /* FluidinfoTests.h */,
 				45B98EB01708EBF800003651 /* FluidinfoTests.m */,
 				45B98EAA1708EBF800003651 /* Supporting Files */,
-				45B98EE317109F9800003651 /* AsyncTestCaseHandler.h */,
-				45B98EE417109F9800003651 /* AsyncTestCaseHandler.m */,
 			);
 			path = FluidinfoTests;
 			sourceTree = "<group>";
@@ -202,11 +196,10 @@
 		45B98ECF1709C55700003651 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				45B98EE0170A292100003651 /* FiClass.h */,
 				45B98EDC170A11BD00003651 /* Tag.h */,
 				45B98EDD170A11BD00003651 /* Tag.m */,
-				45B98ED81709CFAC00003651 /* FiObject.h */,
-				45B98ED91709CFAD00003651 /* FiObject.m */,
+				45B98ED81709CFAC00003651 /* FiClass.h */,
+				45B98ED91709CFAD00003651 /* FiClass.m */,
 				45B98ED01709C55700003651 /* Namespace.h */,
 				45B98ED11709C55700003651 /* Namespace.m */,
 			);
@@ -318,7 +311,7 @@
 				45B98EC51708F8FB00003651 /* Session.m in Sources */,
 				45B98EC91709120A00003651 /* FiRequest.m in Sources */,
 				45B98ED21709C55700003651 /* Namespace.m in Sources */,
-				45B98EDA1709CFAD00003651 /* FiObject.m in Sources */,
+				45B98EDA1709CFAD00003651 /* FiClass.m in Sources */,
 				45B98EDE170A11BD00003651 /* Tag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,9 +326,8 @@
 				45B98EC61708F8FB00003651 /* Session.m in Sources */,
 				45B98ECA1709120A00003651 /* FiRequest.m in Sources */,
 				45B98ED31709C55700003651 /* Namespace.m in Sources */,
-				45B98EDB1709CFAD00003651 /* FiObject.m in Sources */,
+				45B98EDB1709CFAD00003651 /* FiClass.m in Sources */,
 				45B98EDF170A11BD00003651 /* Tag.m in Sources */,
-				45B98EE517109F9800003651 /* AsyncTestCaseHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +483,7 @@
 				45B98EB61708EBF800003651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B98EB71708EBF800003651 /* Build configuration list for PBXNativeTarget "FluidinfoTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +492,7 @@
 				45B98EB91708EBF800003651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

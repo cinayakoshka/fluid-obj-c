@@ -9,7 +9,6 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "Fluidinfo.h"
 #import "Namespace.h"
-#import "AsyncTestCaseHandler.h"
 
 @interface FluidinfoTests : SenTestCase
 {

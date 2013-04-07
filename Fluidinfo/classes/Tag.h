@@ -11,7 +11,7 @@
 
 @class Namespace;
 
-@interface Tag : FiObject <FiClass>
+@interface Tag : FiClass <FiClass>
 {
     NSString * name;
     NSUUID * id;

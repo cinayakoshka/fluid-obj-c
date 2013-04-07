@@ -23,7 +23,7 @@
     [super tearDown];
 }
 
-- (void)waitFor:(FiObject *) obj
+- (void)waitFor:(FiClass *) obj
 {
     NSRunLoop * rl = [NSRunLoop currentRunLoop];
     while (obj.waiting &&
