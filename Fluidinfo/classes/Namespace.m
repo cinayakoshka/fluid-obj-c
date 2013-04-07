@@ -34,28 +34,23 @@
     return [NSJSONSerialization dataWithJSONObject:temp options:noErr error:nil];
 }
 
+- (NSData *) putJson
+{
+    
+    NSDictionary * temp = [NSDictionary dictionaryWithObjectsAndKeys:
+                           description, @"description", nil];
+    return [NSJSONSerialization dataWithJSONObject:temp options:normal error:nil];
+}
+
 - (void) get
 {
     NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@?returnDescription=true&returnNamespaces=true&returnTags=true",[self fullPath]]];
     [self callFluidinfo:request andWait:YES];
 }
 
-- (void) update
+- (NSString *)fqpath
 {
-
-}
-
-- (void) create
-{
-    NSURLRequest * request = [FiRequest postBody:[self postJson] toPath:
-                              [NSString stringWithFormat:@"namespaces/%@", path]];
-    [self callFluidinfo:request andWait:YES];
-}
-
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"%@ { id: %@, description: %@ namespaces: { %@ } tags: { %@ }}",
-            path, id, description, namespaces, tags];
+    return [NSString stringWithFormat:@"namespaces/%@", path];
 }
 
 - (NSString *) fullPath

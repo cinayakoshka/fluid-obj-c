@@ -23,11 +23,15 @@
     BOOL waiting;
     NSError * error;
 }
-// TODO: add some locking around waiting - avoid simultaneous updates.
 @property(readwrite, nonatomic) BOOL waiting;
 @property(readwrite, nonatomic, copy) NSError * error;
-- (NSString *)fullPath;
 - (void)handleCompletionOrCancelFrom:(URLDelegate *)delegate;
 - (NSDictionary *)getDictionaryMaybeFrom:(URLDelegate *)delegate;
 - (void) callFluidinfo:(NSURLRequest *)request andWait:(BOOL) wait;
+
+// subclasses must implement these:
+- (NSString *)fullPath;
+- (NSString *)fqpath;
+- (NSData *)postJson;
+- (NSData *) putJson;
 @end

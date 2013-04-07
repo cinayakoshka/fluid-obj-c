@@ -16,7 +16,7 @@
 @synthesize waiting, error;
 - (NSDictionary *)getDictionaryMaybeFrom:(URLDelegate *)delegate
 {
-    if (delegate.complete) {
+    if (delegate.complete && waiting) {
         NSError * err = [NSError errorWithDomain:_DOMAIN code:0 userInfo:NULL];
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:[delegate receivedData] options:normal error:&err];
         return dic;
@@ -35,7 +35,22 @@
 
 - (NSString *) fullPath
 {
-    return @"";
+    return @"Fail: not yet implemented fullpath here.";
+}
+
+- (NSString *) fqpath
+{
+    return @"Fail: not yet implemented fullpath here";
+}
+
+- (NSData *) postJson
+{
+    return NULL;
+}
+
+- (NSData *) putJson
+{
+    return NULL;
 }
 
 - (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
@@ -43,6 +58,8 @@
     if (delegate.error != NULL) {
         error = delegate.error;
         waiting = NO;
+    } else {
+        error = NULL;
     }
 }
 
@@ -53,12 +70,14 @@
 
 - (void) update
 {
-    
+    NSURLRequest * request = [FiRequest putBody:[self putJson] toPath:[self fullPath]];
+    [self callFluidinfo:request andWait:NO];
 }
 
 - (void) create
 {
-    
+    NSURLRequest * request = [FiRequest postBody:[self postJson] toPath:[self fqpath]];
+    [self callFluidinfo:request andWait:YES];
 }
 
 - (void) delete

@@ -8,8 +8,9 @@
 
 #import "FluidinfoTests.h"
 
+
 @implementation FluidinfoTests
-@synthesize fluidinfo, fiObject, block;
+@synthesize fluidinfo;
 
 - (void)setUp
 {
@@ -20,60 +21,41 @@
 
 - (void)tearDown
 {
-    
-    NSRunLoop * rl = [NSRunLoop currentRunLoop];
-    while (fiObject.waiting > 0 &&
-           [rl runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
-    [block start];
     // Tear-down code here.
     [super tearDown];
 }
 
-- (void)testNamespaceCreate
+- (void)waitFor:(FiObject *) obj
 {
+    NSRunLoop * rl = [NSRunLoop currentRunLoop];
+    while (obj.waiting &&
+           [rl runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+}
+
+- (void)testNamespaceOps
+{
+    // create
     Namespace * namespace = [Namespace initWithPath:@"barshirtcliff" andName:@"tests"];
     namespace.description = @"a test namespace.";
-    fiObject = namespace;
-    block = [NSBlockOperation blockOperationWithBlock:^{
-        STAssertNotNil(namespace.id, @"Namespace must post to Fi successfully");
-    }];
     [namespace create];
-}
+    [self waitFor:namespace];
+    STAssertNotNil(namespace.id, @"Namespace must post to Fi successfully");
 
-- (void)testNamespaceDelete
-{
-    Namespace * namespace = [Namespace initWithPath:@"barshirtcliff" andName:@"tests"];
-    fiObject = namespace;
-    block = [NSBlockOperation blockOperationWithBlock:^{
-        STAssertNil(namespace.id, @"deleted namespace should have no id.");
-    }];
+    // update & get
+    NSString * nd = @"a new description.";
+    namespace.description = nd;
+    [namespace update];
+    [self waitFor:namespace];
+    
+    Namespace * remoteNamespace = [Namespace initWithPath:@"barshirtcliff" andName:@"tests"];
+    [remoteNamespace get];
+    [self waitFor:remoteNamespace];
+    STAssertTrue([nd isEqualToString:remoteNamespace.description], @"must be able to update a description on a namespace.");
+    
+    // delete
     [namespace delete];
+    [self waitFor:namespace];
+    STAssertNil(namespace.id, @"deleted namespace should have no id.");
 }
 @end
-
-
-
-
-/*
-- (void)testNamespaceGet
-{
-    Namespace * namespace = [Namespace getWithPath:NULL andName:@"barshirtcliff"];
-    NSRunLoop * rl = [NSRunLoop currentRunLoop];
-    
-    while ([namespace waiting] &&
-           [rl runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
-    NSLog(@"got namespace: %@", namespace);
-}
-
-- (void)testPrivateNamespaceGet
-{
-    Namespace * namespace = [Namespace getWithPath:@"barshirtcliff" andName:@"private"];
-    NSRunLoop * rl = [NSRunLoop currentRunLoop];
-    
-    while ([namespace waiting] &&
-           [rl runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
-    NSLog(@"got namespace: %@", namespace);
-}
-*/
-
 

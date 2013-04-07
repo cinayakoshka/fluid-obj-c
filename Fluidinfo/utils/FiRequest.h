@@ -13,4 +13,5 @@
 + (NSURLRequest *) getPath:(NSString *)path;
 + (NSURLRequest *) deletePath:(NSString *)path;
 + (NSURLRequest *) postBody:(NSData *)data toPath:(NSString *)path;
++ (NSURLRequest *) putBody:(NSData *)data toPath:(NSString *)path;
 @end

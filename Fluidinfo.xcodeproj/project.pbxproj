@@ -16,6 +16,22 @@
 		45B98EA81708EBF800003651 /* libFluidinfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B98E8F1708EBF800003651 /* libFluidinfo.a */; };
 		45B98EAE1708EBF800003651 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45B98EAC1708EBF800003651 /* InfoPlist.strings */; };
 		45B98EB11708EBF800003651 /* FluidinfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EB01708EBF800003651 /* FluidinfoTests.m */; };
+		45B98EBD1708EEC200003651 /* URLDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EBC1708EEC200003651 /* URLDelegate.m */; };
+		45B98EBE1708EEC200003651 /* URLDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EBC1708EEC200003651 /* URLDelegate.m */; };
+		45B98EC11708F01800003651 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EC01708F01800003651 /* NSStringAdditions.m */; };
+		45B98EC21708F01800003651 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EC01708F01800003651 /* NSStringAdditions.m */; };
+		45B98EC51708F8FB00003651 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EC41708F8FB00003651 /* Session.m */; };
+		45B98EC61708F8FB00003651 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EC41708F8FB00003651 /* Session.m */; };
+		45B98EC91709120A00003651 /* FiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EC81709120A00003651 /* FiRequest.m */; };
+		45B98ECA1709120A00003651 /* FiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EC81709120A00003651 /* FiRequest.m */; };
+		45B98ED21709C55700003651 /* Namespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED11709C55700003651 /* Namespace.m */; };
+		45B98ED31709C55700003651 /* Namespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED11709C55700003651 /* Namespace.m */; };
+		45B98EDA1709CFAD00003651 /* FiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED91709CFAD00003651 /* FiObject.m */; };
+		45B98EDB1709CFAD00003651 /* FiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98ED91709CFAD00003651 /* FiObject.m */; };
+		45B98EDE170A11BD00003651 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EDD170A11BD00003651 /* Tag.m */; };
+		45B98EDF170A11BD00003651 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EDD170A11BD00003651 /* Tag.m */; };
+		45B98EE2170E6F7500003651 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45B98EE1170E6F7400003651 /* README.md */; };
+		45B98EE517109F9800003651 /* AsyncTestCaseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B98EE417109F9800003651 /* AsyncTestCaseHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +70,24 @@
 		45B98EAD1708EBF800003651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		45B98EAF1708EBF800003651 /* FluidinfoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FluidinfoTests.h; sourceTree = "<group>"; };
 		45B98EB01708EBF800003651 /* FluidinfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FluidinfoTests.m; sourceTree = "<group>"; };
+		45B98EBB1708EEC200003651 /* URLDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLDelegate.h; sourceTree = "<group>"; };
+		45B98EBC1708EEC200003651 /* URLDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLDelegate.m; sourceTree = "<group>"; };
+		45B98EBF1708F01800003651 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		45B98EC01708F01800003651 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		45B98EC31708F8FB00003651 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		45B98EC41708F8FB00003651 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		45B98EC71709120A00003651 /* FiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiRequest.h; sourceTree = "<group>"; };
+		45B98EC81709120A00003651 /* FiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiRequest.m; sourceTree = "<group>"; };
+		45B98ED01709C55700003651 /* Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Namespace.h; sourceTree = "<group>"; };
+		45B98ED11709C55700003651 /* Namespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Namespace.m; sourceTree = "<group>"; };
+		45B98ED81709CFAC00003651 /* FiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiObject.h; sourceTree = "<group>"; };
+		45B98ED91709CFAD00003651 /* FiObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiObject.m; sourceTree = "<group>"; };
+		45B98EDC170A11BD00003651 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Fluidinfo/classes/Tag.h; sourceTree = SOURCE_ROOT; };
+		45B98EDD170A11BD00003651 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Fluidinfo/classes/Tag.m; sourceTree = SOURCE_ROOT; };
+		45B98EE0170A292100003651 /* FiClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiClass.h; sourceTree = "<group>"; };
+		45B98EE1170E6F7400003651 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		45B98EE317109F9800003651 /* AsyncTestCaseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTestCaseHandler.h; sourceTree = "<group>"; };
+		45B98EE417109F9800003651 /* AsyncTestCaseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTestCaseHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +145,14 @@
 		45B98E941708EBF800003651 /* Fluidinfo */ = {
 			isa = PBXGroup;
 			children = (
+				45B98EE1170E6F7400003651 /* README.md */,
 				45B98E971708EBF800003651 /* Fluidinfo.h */,
 				45B98E991708EBF800003651 /* Fluidinfo.m */,
+				45B98ECF1709C55700003651 /* classes */,
+				45B98EBA1708EEC200003651 /* utils */,
 				45B98E951708EBF800003651 /* Supporting Files */,
+				45B98EC31708F8FB00003651 /* Session.h */,
+				45B98EC41708F8FB00003651 /* Session.m */,
 			);
 			path = Fluidinfo;
 			sourceTree = "<group>";
@@ -132,6 +171,8 @@
 				45B98EAF1708EBF800003651 /* FluidinfoTests.h */,
 				45B98EB01708EBF800003651 /* FluidinfoTests.m */,
 				45B98EAA1708EBF800003651 /* Supporting Files */,
+				45B98EE317109F9800003651 /* AsyncTestCaseHandler.h */,
+				45B98EE417109F9800003651 /* AsyncTestCaseHandler.m */,
 			);
 			path = FluidinfoTests;
 			sourceTree = "<group>";
@@ -143,6 +184,33 @@
 				45B98EAC1708EBF800003651 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45B98EBA1708EEC200003651 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				45B98EBF1708F01800003651 /* NSStringAdditions.h */,
+				45B98EC01708F01800003651 /* NSStringAdditions.m */,
+				45B98EBB1708EEC200003651 /* URLDelegate.h */,
+				45B98EBC1708EEC200003651 /* URLDelegate.m */,
+				45B98EC71709120A00003651 /* FiRequest.h */,
+				45B98EC81709120A00003651 /* FiRequest.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		45B98ECF1709C55700003651 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				45B98EE0170A292100003651 /* FiClass.h */,
+				45B98EDC170A11BD00003651 /* Tag.h */,
+				45B98EDD170A11BD00003651 /* Tag.m */,
+				45B98ED81709CFAC00003651 /* FiObject.h */,
+				45B98ED91709CFAD00003651 /* FiObject.m */,
+				45B98ED01709C55700003651 /* Namespace.h */,
+				45B98ED11709C55700003651 /* Namespace.m */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B98EAE1708EBF800003651 /* InfoPlist.strings in Resources */,
+				45B98EE2170E6F7500003651 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B98E9A1708EBF800003651 /* Fluidinfo.m in Sources */,
+				45B98EBD1708EEC200003651 /* URLDelegate.m in Sources */,
+				45B98EC11708F01800003651 /* NSStringAdditions.m in Sources */,
+				45B98EC51708F8FB00003651 /* Session.m in Sources */,
+				45B98EC91709120A00003651 /* FiRequest.m in Sources */,
+				45B98ED21709C55700003651 /* Namespace.m in Sources */,
+				45B98EDA1709CFAD00003651 /* FiObject.m in Sources */,
+				45B98EDE170A11BD00003651 /* Tag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +328,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B98EB11708EBF800003651 /* FluidinfoTests.m in Sources */,
+				45B98EBE1708EEC200003651 /* URLDelegate.m in Sources */,
+				45B98EC21708F01800003651 /* NSStringAdditions.m in Sources */,
+				45B98EC61708F8FB00003651 /* Session.m in Sources */,
+				45B98ECA1709120A00003651 /* FiRequest.m in Sources */,
+				45B98ED31709C55700003651 /* Namespace.m in Sources */,
+				45B98EDB1709CFAD00003651 /* FiObject.m in Sources */,
+				45B98EDF170A11BD00003651 /* Tag.m in Sources */,
+				45B98EE517109F9800003651 /* AsyncTestCaseHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +423,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -351,6 +436,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -365,6 +451,7 @@
 				GCC_PREFIX_HEADER = "Fluidinfo/Fluidinfo-Prefix.pch";
 				INFOPLIST_FILE = "FluidinfoTests/FluidinfoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -380,6 +467,7 @@
 				GCC_PREFIX_HEADER = "Fluidinfo/Fluidinfo-Prefix.pch";
 				INFOPLIST_FILE = "FluidinfoTests/FluidinfoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
