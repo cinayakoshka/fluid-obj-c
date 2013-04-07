@@ -45,7 +45,7 @@
 - (void) get
 {
     NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@?returnDescription=true&returnNamespaces=true&returnTags=true",[self fullPath]]];
-    [self callFluidinfo:request andWait:YES];
+    [self callFluidinfo:request andWait:YES andProcess:YES];
 }
 
 - (NSString *)fqpath

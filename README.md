@@ -3,7 +3,28 @@ fluid-obj-c
 
 Shiny new objective-c client lib for Fluidinfo
 
-Provides an OO Obj-c interface for working with Fluidinfo's objects, tags, values, namespaces, and permissions.
+Provides an OO Obj-c interface for working with Fluidinfo's objects,
+tags, values, namespaces, and permissions.
+
+* FiObjects
+
+Namespaces, Tags, Objects, Values, and Permissions are FiObjects.  All
+of them have in common a boolean value, waiting.  While nothing is
+done internally with this value, outside of the integration tests, you
+may use it to avoid making conflicting calls to Fluidinfo using
+Key-Value coding.  Every call to Fluidinfo triggers setting waiting to
+true until the call has completed asynchronously.  For connectivity
+issues, you're on your own - everything will always be waiting.  Feel
+free to set waiting to false in order to recover.
+
+FiObjects have no knowledge of whether they correctly represent remote
+fluidinfo state.  However, if an operation on a FiObject fails and
+produces an error, that error is attached to the object until another
+operation is triggered.
+
+You may get some unexpected or inconsistent results, if you execute
+simultaneous operations on FiObjects.  That is a natural side-effect
+of working asynchronously.
 
 * Namespaces
 
@@ -25,4 +46,10 @@ To get a top-level namespace, just set the path to NULL.
 Or delete it:
 [n delete].
 
+
+* Tags
+
+Tags work pretty much just like namespaces.  The description defaults
+to an empty string, and indexed defaults to false.  Note that this is
+important, as you cannot change the value of indexed, later.
 

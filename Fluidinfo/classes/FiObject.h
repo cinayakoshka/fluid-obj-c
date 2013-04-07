@@ -21,13 +21,15 @@
 @interface FiObject : NSObject <FiClass>
 {
     BOOL waiting;
+    BOOL processResponse;
     NSError * error;
 }
 @property(readwrite, nonatomic) BOOL waiting;
+@property(readwrite, nonatomic) BOOL processResponse;
 @property(readwrite, nonatomic, copy) NSError * error;
 - (void)handleCompletionOrCancelFrom:(URLDelegate *)delegate;
 - (NSDictionary *)getDictionaryMaybeFrom:(URLDelegate *)delegate;
-- (void) callFluidinfo:(NSURLRequest *)request andWait:(BOOL) wait;
+- (void) callFluidinfo:(NSURLRequest *)request andWait:(BOOL)wait andProcess:(BOOL)process;
 
 // subclasses must implement these:
 - (NSString *)fullPath;

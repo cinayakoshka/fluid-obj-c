@@ -15,17 +15,15 @@
 {
     NSString * name;
     NSUUID * id;
-    Namespace * namespace;
+    NSString * path;
     NSString * description;
     BOOL indexed;
 }
 @property (readwrite, nonatomic, copy) NSString * name;
 @property (readwrite, nonatomic, copy) NSUUID * id;
-@property (readwrite, nonatomic, copy) Namespace * namespace;
+@property (readwrite, nonatomic, copy) NSString * path;
 @property (readwrite, nonatomic, copy) NSString * description;
 @property (readwrite, nonatomic) BOOL indexed;
-
-+ (id)getWithNamespace:(Namespace *)namespace andName:(NSString *)name;
-+ (id)initWithNamespace:(Namespace *)namespace andName:(NSString *)name;
-
++ (id)getWithPath:(NSString *)path andName:(NSString *)name;
++ (id)initWithPath:(NSString *)path andName:(NSString *)name;
 @end

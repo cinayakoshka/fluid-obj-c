@@ -9,47 +9,60 @@
 #import "Tag.h"
 
 @implementation Tag
-@synthesize name, description, namespace, id, indexed;
-+ (id) initWithNamespace:(Namespace *)namespace andName:(NSString *)name
+@synthesize name, description, path, id, indexed;
++ (id)initWithPath:(NSString *)path andName:(NSString *)name
 {
     Tag * tag = [[Tag alloc] init];
     tag.name = name;
-    tag.namespace = namespace;
+    tag.path = path;
     tag.indexed = false;
+    tag.description = @"";
     return tag;
 }
 
-+ (id) getWithNamespace:(Namespace *)namespace andName:(NSString *)name
++ (id)getWithPath:(NSString *)path andName:(NSString *)name
 {
-    Tag * tag = [Tag initWithNamespace:namespace andName:name];
+    Tag * tag = [Tag initWithPath:path andName:name];
     [tag get];
     return tag;
 }
 
 - (void) get
 {
-    NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@/%@", namespace.path, name]];
-    [self callFluidinfo:request andWait:YES];
+    NSURLRequest * request = [FiRequest getPath:[NSString stringWithFormat:@"%@?returnDescription=true",[self fullPath]]];
+    [self callFluidinfo:request andWait:YES andProcess:YES];
 }
 
-- (void) update
+- (NSString *)fullPath
 {
-
+    return [NSString stringWithFormat:@"tags/%@/%@", path, name];
 }
 
-- (void) create
+- (NSString *)fqpath
 {
-
+    return [NSString stringWithFormat:@"tags/%@", path];
 }
 
-- (void) delete
+- (NSData *)postJson
 {
+    NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                          description, @"description",
+                          [NSNumber numberWithBool:indexed], @"indexed",
+                          name, @"name", nil];
+    return [NSJSONSerialization dataWithJSONObject:dic options:normal error:nil];
+}
 
+- (NSData *)putJson
+{
+    NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                          description, @"description", nil];
+    return [NSJSONSerialization dataWithJSONObject:dic options:normal error:nil];
 }
 
 - (void) handleCompletionOrCancelFrom:(URLDelegate *)delegate
 {
     @synchronized(self) {
+        [super handleCompletionOrCancelFrom:delegate];
         NSDictionary * dictionary = [super getDictionaryMaybeFrom:delegate];
         [self processReturnedDictionary:dictionary];
     }
@@ -59,6 +72,7 @@
 {
     [self setId:[dictionary valueForKey:@"id"]];
     description = [dictionary valueForKey:@"description"];
+    indexed = (BOOL)[dictionary valueForKey:@"indexed"];
     waiting = NO;
 }
 @end
