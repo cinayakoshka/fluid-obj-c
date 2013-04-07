@@ -6,9 +6,9 @@ Shiny new objective-c client lib for Fluidinfo
 Provides an OO Obj-c interface for working with Fluidinfo's objects,
 tags, values, namespaces, and permissions.
 
-* FiObjects
+* FiClasses
 
-Namespaces, Tags, Objects, Values, and Permissions are FiObjects.  All
+Namespaces, Tags, FiObjects, Values, and Permissions are FiClasses.  All
 of them have in common a boolean value, waiting.  While nothing is
 done internally with this value, outside of the integration tests, you
 may use it to avoid making conflicting calls to Fluidinfo using
@@ -17,13 +17,13 @@ true until the call has completed asynchronously.  For connectivity
 issues, you're on your own - everything will always be waiting.  Feel
 free to set waiting to false in order to recover.
 
-FiObjects have no knowledge of whether they correctly represent remote
-fluidinfo state.  However, if an operation on a FiObject fails and
+FiClasses have no knowledge of whether they correctly represent remote
+fluidinfo state.  However, if an operation on a FiClass fails and
 produces an error, that error is attached to the object until another
 operation is triggered.
 
 You may get some unexpected or inconsistent results, if you execute
-simultaneous operations on FiObjects.  That is a natural side-effect
+simultaneous operations on FiClasses.  That is a natural side-effect
 of working asynchronously.
 
 * Namespaces
